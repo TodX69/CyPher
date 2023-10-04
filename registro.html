@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Estilos para la barra de navegación */
+nav {
+    background-color: #18da12;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: bold;
+}
+    
+        body {
+           background-color: #44e91b;
+           color: #ffffff
+       }
+       h1
+       {
+          text-transform:uppercase;
+           font: bold 20px/45px Helvetica, Verdana, sans-serif;
+           text-align: center;
+       }
+       label 
+       {
+           display: block;
+       }
+       h2 
+       {
+           font: bold 14px Helvetica, Verdana, sans-serif;
+           background-color: #1e6fc0;
+           text-align: center;
+           padding: 5px;
+           border-radius: 10px;
+           width: 300px;
+           margin: 0px auto;
+       }
+       div 
+       {
+           background-color: #3b3b3b;
+           width: 300px;
+           margin: 0px auto;
+           padding: 10px;
+           border-radius: 15px;
+       }
+       </style>
+       <script>
+           function validar() {
+           var user = document.getElementById("user");
+           var email = document.getElementById("email");
+           var pass1 = document.getElementById("pass1");
+           var pass2 = document.getElementById("pass2");
+           var codipos = document.getElementById("codipos");
+           var sexo = document.getElementsByName("sexo");
+           var seleccionado = false;
+           var ciudad = document.getElementById("ciudad").selectedIndex;
+           var elementoCHECK = document.getElementById("terminos");
+       
+           if(user.value.length == 0)
+           {
+             alert("Debe ingresar el Usuario");
+               user.focus();
+               return false;
+           }
+           if(email.value.length == 0)
+           {
+               alert("Por favor, ingrese su Email");
+               email.focus();
+               return false;
+           }
+           if(pass1.value.length < 6)
+           {
+               alert("Debe ingresar una contraseña de más de 6 caracteres");
+               pass1.focus();
+               return false;
+           }
+           else if(pass1.value != pass2.value)
+           {
+               alert("Las contraseñas no coinciden");
+               pass2.focus();
+               return false;
+           }
+           if(codipos.value.length == 0)
+           {
+               alert("Por favor ingrese su código postal");
+               codipos.focus();
+               return false;
+           }
+           else if(codipos.value.length != 0 && isNaN(codipos.value))
+           {
+               alert("Por favor, ingrese solo numeros en el código postal");
+               codipos.focus();
+               return false;
+           }
+           for(var i = 0; i<sexo.length; i++)
+           {
+               if(sexo[i].checked)
+               {
+                   seleccionado = true;
+               }
+           }
+           if(!seleccionado)
+           {
+               alert("Debes indicar el sexo");
+               return false;
+           }
+           if(ciudad == 0 || ciudad == null)
+           {
+               alert("Por favor, seleccione una ciudad");
+               return false;
+           }
+           if(!elementoCHECK.checked)
+           {
+               alert("Debe aceptar los términos y condiciones");
+               return false;
+           }
+         else
+         {
+           alert("Datos de formulario enviados exitosamente.");
+           document.getElementById("myForm").reset();
+             return false;
+           }
+       }
+       </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">inicio</a></li>
+            <li><a href="quiensoy.html">¿Quien Somos?</a></li>
+            <li><a href="noticias.html">Proyectos</a></li>
+            <li><a href="login.html">Iniciar Secion</a></li>
+            
+        </ul>
+    </nav>
+    
+    <br>
+    <div class="container" style="max-width: 650px; min-width: 400px;">
+      <div class="card">
+        <h2 class="card-header text-center">formulario de Registro</h2>
+        <div class="card-body">
+          <form id="myForm" onsubmit="return validar()">
+            <div class="form-group">
+              <legend>Datos de la Cuenta</legend>
+              <label for="user">Usuario:</label>
+              <input type="text" class="form-control" id="user" placeholder="Usuario">
+              <label for="email">Correo Electronico:</label>
+              <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+              <label for="Pass1">Contraseña:</label>
+              <input type="password" class="form-control" id="pass1" placeholder="Contraseña">
+              <label for="pass2">Rep. Contraseña:</label>
+              <input type="password" class="form-control" id="pass2" placeholder="Repetir Contraseña">
+              <label for="codipos">Código Postal:</label>
+              <input type="text" class="form-control" id="codipos" placeholder="Codigo Postal">
+            </div>
+    
+            <div class="form-group">
+              <legend>Datos Personales</legend>
+              <label for="sexo">Sexo:</label>
+              <input type="radio" id="sexo" name="sexo"> Masculino
+              <input type="radio" id="sexo" name="sexo"> Femenino <br>
+              <label for="ciudad">Ciudad:</label>      
+                <select class="form-control" id="ciudad">
+                  <option value="Lota">Seleccionar</option>
+                  <option value="Lota">Lota</option>
+                  <option value="Coronel">Coronel</option>
+                  <option value="concepción">Concepción</option>
+                </select>      
+              <label for="terminos">Legalidades:</label><br>
+              <input type="checkbox" id="terminos"> Acepto los términos y condiciones          
+            </div>
+            <input type="submit" class="btn btn-success" id="boton" value="Registrar">
+            <input type="reset" class="btn btn-danger" id="boton" value="Reiniciar">
+          </form>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>
+
+

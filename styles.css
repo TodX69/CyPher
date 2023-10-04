@@ -1,0 +1,62 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #18da12;
+    color: #feffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #18da12;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Estilos para el contenido principal */
+div {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+}
+
+#datos, #profesores {
+    margin-top: 30px;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #18da12;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
